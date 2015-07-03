@@ -13,6 +13,7 @@
 		1D3F8F1A1B45EBAA0074D1FB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1D3F8F191B45EBAA0074D1FB /* Images.xcassets */; };
 		1D3F8F1D1B45EBAA0074D1FB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D3F8F1B1B45EBAA0074D1FB /* LaunchScreen.xib */; };
 		1D3F8F291B45EBAA0074D1FB /* Uber_Unit_2_01Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3F8F281B45EBAA0074D1FB /* Uber_Unit_2_01Tests.m */; };
+		1DAB330B1B474BFD00D79429 /* TemperatureConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1DAB330A1B474BFD00D79429 /* TemperatureConverter.m */; };
 		6AFC81A5227DAEE82381BD1E /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B8B76F7B1E7D8C87359DFEFD /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +40,8 @@
 		1D3F8F221B45EBAA0074D1FB /* Uber Unit 2-01Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Uber Unit 2-01Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D3F8F271B45EBAA0074D1FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1D3F8F281B45EBAA0074D1FB /* Uber_Unit_2_01Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Uber_Unit_2_01Tests.m; sourceTree = "<group>"; };
+		1DAB33091B474BFD00D79429 /* TemperatureConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TemperatureConverter.h; sourceTree = "<group>"; };
+		1DAB330A1B474BFD00D79429 /* TemperatureConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TemperatureConverter.m; sourceTree = "<group>"; };
 		3C0960B9A301C0C84D286F32 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		4ED69E6E5B9045F0AABFE085 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		B8B76F7B1E7D8C87359DFEFD /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +101,8 @@
 				1D3F8F111B45EBAA0074D1FB /* AppDelegate.m */,
 				1D3F8F131B45EBAA0074D1FB /* ViewController.h */,
 				1D3F8F141B45EBAA0074D1FB /* ViewController.m */,
+				1DAB33091B474BFD00D79429 /* TemperatureConverter.h */,
+				1DAB330A1B474BFD00D79429 /* TemperatureConverter.m */,
 				1D3F8F191B45EBAA0074D1FB /* Images.xcassets */,
 				1D3F8F1B1B45EBAA0074D1FB /* LaunchScreen.xib */,
 				1D3F8F0C1B45EBAA0074D1FB /* Supporting Files */,
@@ -277,6 +282,7 @@
 				1D3F8F151B45EBAA0074D1FB /* ViewController.m in Sources */,
 				1D3F8F121B45EBAA0074D1FB /* AppDelegate.m in Sources */,
 				1D3F8F0F1B45EBAA0074D1FB /* main.m in Sources */,
+				1DAB330B1B474BFD00D79429 /* TemperatureConverter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
