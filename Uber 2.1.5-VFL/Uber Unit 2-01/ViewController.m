@@ -44,40 +44,28 @@
     self.greenSlider.translatesAutoresizingMaskIntoConstraints = NO;
     self.blueSlider.translatesAutoresizingMaskIntoConstraints = NO;
     
-    NSArray *constraintsArray = @[
+    //center greenSlider vertically
+    NSArray *constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[view]-(<=1)-[greenSlider]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:@{@"view": self.view, @"greenSlider": self.greenSlider}];
+    [self.view addConstraints:constraintsArray];
     
-    [NSLayoutConstraint constraintWithItem:self.redSlider attribute:NSLayoutAttributeLeading
-                                 relatedBy:NSLayoutRelationEqual toItem:self.view
-                                 attribute:NSLayoutAttributeLeading multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing
-                                 relatedBy:NSLayoutRelationEqual toItem:self.redSlider
-                                 attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.greenSlider attribute:NSLayoutAttributeTop
-                                 relatedBy:NSLayoutRelationEqual toItem:self.redSlider
-                                 attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10],
+    //redSlider will have 10 points of space on each side
+    constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[redSlider]-10-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"redSlider": self.redSlider}];
+    [self.view addConstraints:constraintsArray];
     
-    [NSLayoutConstraint constraintWithItem:self.greenSlider attribute:NSLayoutAttributeLeading
-                                 relatedBy:NSLayoutRelationEqual toItem:self.view
-                                 attribute:NSLayoutAttributeLeading multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing
-                                 relatedBy:NSLayoutRelationEqual toItem:self.greenSlider
-                                 attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterY
-                                 relatedBy:NSLayoutRelationEqual toItem:self.greenSlider
-                                 attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0],
+    //redSlider will have 10 points of space vetically (on the bottom) in relation to the green slider
+    constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[redSlider]-10-[greenSlider]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"redSlider": self.redSlider, @"greenSlider": self.greenSlider}];
+    [self.view addConstraints:constraintsArray];
     
-    [NSLayoutConstraint constraintWithItem:self.blueSlider attribute:NSLayoutAttributeLeading
-                                 relatedBy:NSLayoutRelationEqual toItem:self.view
-                                 attribute:NSLayoutAttributeLeading multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing
-                                 relatedBy:NSLayoutRelationEqual toItem:self.blueSlider
-                                 attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.blueSlider attribute:NSLayoutAttributeTop
-                                 relatedBy:NSLayoutRelationEqual toItem:self.greenSlider
-                                 attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10]
+    //greenSlider will have 10 points of space on each side
+    constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[greenSlider]-10-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"greenSlider": self.greenSlider}];
+    [self.view addConstraints:constraintsArray];
     
-    ];
+    //blueSlider will have 10 points of space on each side
+    constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[blueSlider]-10-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"blueSlider": self.blueSlider}];
+    [self.view addConstraints:constraintsArray];
     
+    //blueSlider will have 10 points of space vetically (on the top) in relation to the green slider
+    constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[greenSlider]-10-[blueSlider]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"greenSlider": self.greenSlider, @"blueSlider": self.blueSlider}];
     [self.view addConstraints:constraintsArray];
 }
 
