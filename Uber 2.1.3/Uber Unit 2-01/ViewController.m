@@ -10,24 +10,46 @@
 
 @interface ViewController ()
 
+@property (weak, nonatomic) UISlider *redSlider;
+@property (weak, nonatomic) UISlider *greenSlider;
+@property (weak, nonatomic) UISlider *blueSlider;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor colorWithRed:0.18 green:0.51 blue:0.40 alpha:1];
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, self.view.frame.size.width, 44)];
-    label.text = @"Hello, World!";
-    label.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:label];
     
+    CGFloat height = 50;
+    CGFloat width = self.view.frame.size.width;
+    UISlider *redSlider = [[UISlider alloc] initWithFrame:CGRectMake(0, 20, width, height)];
+    UISlider *greenSlider = [[UISlider alloc] initWithFrame:CGRectMake(0, 70, width, height)];
+    UISlider *blueSlider = [[UISlider alloc] initWithFrame:CGRectMake(0, 120, width, height)];
+    redSlider.tintColor = [UIColor redColor];
+    greenSlider.tintColor = [UIColor greenColor];
+    blueSlider.tintColor = [UIColor blueColor];
+    [self.view addSubview:redSlider];
+    [self.view addSubview:greenSlider];
+    [self.view addSubview:blueSlider];
+    self.redSlider = redSlider;
+    self.greenSlider = greenSlider;
+    self.blueSlider = blueSlider;
     
+    [self updateBackgroundColor];
+    
+    [self.redSlider addTarget:self action:@selector(updateBackgroundColor) forControlEvents:UIControlEventValueChanged];
+    [self.greenSlider addTarget:self action:@selector(updateBackgroundColor) forControlEvents:UIControlEventValueChanged];
+    [self.blueSlider addTarget:self action:@selector(updateBackgroundColor) forControlEvents:UIControlEventValueChanged];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)updateBackgroundColor {
+    self.view.backgroundColor = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1];
 }
 
 @end
