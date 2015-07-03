@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "Masonry.h"
 
 @interface ViewController ()
 
@@ -44,29 +45,27 @@
     self.greenSlider.translatesAutoresizingMaskIntoConstraints = NO;
     self.blueSlider.translatesAutoresizingMaskIntoConstraints = NO;
     
-    //center greenSlider vertically
-    NSArray *constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"H:[view]-(<=1)-[greenSlider]" options:NSLayoutFormatAlignAllCenterY metrics:nil views:@{@"view": self.view, @"greenSlider": self.greenSlider}];
-    [self.view addConstraints:constraintsArray];
+    CGFloat leadingOffset = 10;
+    CGFloat trailingOffset = -10;
+    CGFloat verticalSpace = 10;
     
-    //redSlider will have 10 points of space on each side
-    constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[redSlider]-10-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"redSlider": self.redSlider}];
-    [self.view addConstraints:constraintsArray];
+    [self.redSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.equalTo(self.greenSlider.mas_top).offset(-verticalSpace);
+        make.leading.equalTo(self.view.mas_leading).offset(leadingOffset);
+        make.trailing.equalTo(self.view.mas_trailing).offset(trailingOffset);
+    }];
     
-    //redSlider will have 10 points of space vetically (on the bottom) in relation to the green slider
-    constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[redSlider]-10-[greenSlider]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"redSlider": self.redSlider, @"greenSlider": self.greenSlider}];
-    [self.view addConstraints:constraintsArray];
+    [self.greenSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.leading.equalTo(self.view.mas_leading).offset(leadingOffset);
+        make.trailing.equalTo(self.view.mas_trailing).offset(trailingOffset);
+    }];
     
-    //greenSlider will have 10 points of space on each side
-    constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[greenSlider]-10-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"greenSlider": self.greenSlider}];
-    [self.view addConstraints:constraintsArray];
-    
-    //blueSlider will have 10 points of space on each side
-    constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"|-10-[blueSlider]-10-|" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"blueSlider": self.blueSlider}];
-    [self.view addConstraints:constraintsArray];
-    
-    //blueSlider will have 10 points of space vetically (on the top) in relation to the green slider
-    constraintsArray = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[greenSlider]-10-[blueSlider]" options:NSLayoutFormatAlignAllCenterX metrics:nil views:@{@"greenSlider": self.greenSlider, @"blueSlider": self.blueSlider}];
-    [self.view addConstraints:constraintsArray];
+    [self.blueSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.greenSlider.mas_baseline).offset(verticalSpace);
+        make.leading.equalTo(self.view.mas_leading).offset(leadingOffset);
+        make.trailing.equalTo(self.view.mas_trailing).offset(trailingOffset);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
