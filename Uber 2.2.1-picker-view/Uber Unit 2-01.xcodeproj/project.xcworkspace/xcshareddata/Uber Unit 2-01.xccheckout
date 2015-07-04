@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E608C0CE-B734-48A1-9C7D-9FEA43BDB259</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Uber Unit 2-01</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>D30CAEF1F513DC4801175A17C7D10D1417F4E9A6</key>
+		<string>https://github.com/Thinkful-Ed/ObjectiveC_Uber_Unit2_app.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Uber 2.1.5-VFL/Uber Unit 2-01.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>D30CAEF1F513DC4801175A17C7D10D1417F4E9A6</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Thinkful-Ed/ObjectiveC_Uber_Unit2_app.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>D30CAEF1F513DC4801175A17C7D10D1417F4E9A6</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>D30CAEF1F513DC4801175A17C7D10D1417F4E9A6</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ObjectiveC_Uber_Unit2_app</string>
+		</dict>
+	</array>
+</dict>
+</plist>
