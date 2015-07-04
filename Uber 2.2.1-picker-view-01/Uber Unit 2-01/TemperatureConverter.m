@@ -10,8 +10,8 @@
 
 @implementation TemperatureConverter
 
-+ (float)celciusToFahrenheight:(float)celcius {
-    float fahrenheit = celcius * 1.8 + 32;
++ (float)celsiusToFahrenheight:(float)celsius {
+    float fahrenheit = celsius * 1.8 + 32;
     return fahrenheit;
 }
 

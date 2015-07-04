@@ -10,6 +10,6 @@
 
 @interface TemperatureConverter : NSObject
 
-+ (float)celciusToFahrenheight:(float)celcius;
++ (float)celsiusToFahrenheight:(float)celsius;
 
 @end

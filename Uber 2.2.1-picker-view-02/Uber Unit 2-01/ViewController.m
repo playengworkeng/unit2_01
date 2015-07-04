@@ -12,11 +12,11 @@
 
 @interface ViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property (weak, nonatomic) UIPickerView *celciusPickerView;
-@property (weak, nonatomic) UILabel *celciusLabel;
+@property (weak, nonatomic) UIPickerView *celsiusPickerView;
+@property (weak, nonatomic) UILabel *celsiusLabel;
 @property (weak, nonatomic) UILabel *fahrenheitLabel;
 
-@property (strong, nonatomic) NSArray *celciusNumbers;
+@property (strong, nonatomic) NSArray *celsiusNumbers;
 
 @end
 
@@ -25,35 +25,35 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSMutableArray *mutableCelciusNumbers = [NSMutableArray new];
+    NSMutableArray *mutableCelsiusNumbers = [NSMutableArray new];
     for (int i=-100; i<=100; i++) {
-        [mutableCelciusNumbers addObject:@(i)];
+        [mutableCelsiusNumbers addObject:@(i)];
     }
-    self.celciusNumbers = [mutableCelciusNumbers copy];
+    self.celsiusNumbers = [mutableCelsiusNumbers copy];
     
     self.view.backgroundColor = [UIColor colorWithHue:0.6 saturation:1.0 brightness:0.18 alpha:1.0];
     
-    UIPickerView *celciusPickerView = [UIPickerView new];
-    celciusPickerView.dataSource = self;
-    celciusPickerView.delegate = self;
-    UILabel *celciusLabel = [UILabel new];
+    UIPickerView *celsiusPickerView = [UIPickerView new];
+    celsiusPickerView.dataSource = self;
+    celsiusPickerView.delegate = self;
+    UILabel *celsiusLabel = [UILabel new];
     UILabel *fahrenheitLabel = [UILabel new];
-    [self.view addSubview:celciusPickerView];
-    [self.view addSubview:celciusLabel];
+    [self.view addSubview:celsiusPickerView];
+    [self.view addSubview:celsiusLabel];
     [self.view addSubview:fahrenheitLabel];
-    self.celciusPickerView = celciusPickerView;
-    self.celciusLabel = celciusLabel;
+    self.celsiusPickerView = celsiusPickerView;
+    self.celsiusLabel = celsiusLabel;
     self.fahrenheitLabel = fahrenheitLabel;
     
     UIColor *color = [UIColor colorWithHue:0.22 saturation:1.0 brightness:0.9 alpha:1.0];
     
-    celciusPickerView.backgroundColor = [UIColor whiteColor];
+    celsiusPickerView.backgroundColor = [UIColor whiteColor];
     
-    self.celciusLabel.text = @"0°C";
+    self.celsiusLabel.text = @"0°C";
     self.fahrenheitLabel.text = @"32°F";
-    [self.celciusLabel setFont:[UIFont boldSystemFontOfSize:60]];
-    self.celciusLabel.textColor = color;
-    self.celciusLabel.textAlignment = NSTextAlignmentRight;
+    [self.celsiusLabel setFont:[UIFont boldSystemFontOfSize:60]];
+    self.celsiusLabel.textColor = color;
+    self.celsiusLabel.textAlignment = NSTextAlignmentRight;
     [self.fahrenheitLabel setFont:[UIFont boldSystemFontOfSize:60]];
     self.fahrenheitLabel.textColor = color;
     self.fahrenheitLabel.textAlignment = NSTextAlignmentRight;
@@ -62,13 +62,13 @@
     CGFloat trailingOffset = -20;
     CGFloat verticalSpace = 20;
     
-    [self.celciusPickerView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.celsiusPickerView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view.mas_bottom);
         make.leading.equalTo(self.view.mas_leading);
         make.trailing.equalTo(self.view.mas_trailing);
     }];
     
-    [self.celciusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.celsiusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         UIView *topLayoutGuide = (id)self.topLayoutGuide;
         make.top.equalTo(topLayoutGuide.mas_bottom).offset(verticalSpace);
         make.leading.equalTo(self.view.mas_leading).offset(leadingOffset);
@@ -76,12 +76,12 @@
     }];
     
     [self.fahrenheitLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.celciusLabel.mas_bottom).offset(verticalSpace);
+        make.top.equalTo(self.celsiusLabel.mas_bottom).offset(verticalSpace);
         make.leading.equalTo(self.view.mas_leading).offset(leadingOffset);
         make.trailing.equalTo(self.view.mas_trailing).offset(trailingOffset);
     }];
     
-    [self.celciusPickerView selectRow:100 inComponent:0 animated:NO];
+    [self.celsiusPickerView selectRow:100 inComponent:0 animated:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,10 +93,10 @@
     return UIStatusBarStyleLightContent;
 }
 
-- (void)updateTemperatureLabelWithCelciusValue:(float)celcius {
-    float fahrenheit = [TemperatureConverter celciusToFahrenheight:celcius];
+- (void)updateTemperatureLabelWithCelsiusValue:(float)celsius {
+    float fahrenheit = [TemperatureConverter celsiusToFahrenheight:celsius];
     
-    self.celciusLabel.text = [NSString stringWithFormat:@"%.02f°C", celcius];
+    self.celsiusLabel.text = [NSString stringWithFormat:@"%.02f°C", celsius];
     self.fahrenheitLabel.text = [NSString stringWithFormat:@"%.02f°F", fahrenheit];
 }
 
@@ -107,21 +107,21 @@
 }
 
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return self.celciusNumbers.count;
+    return self.celsiusNumbers.count;
 }
 
 #pragma mark- UIPickerViewDelegate
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSNumber *celciusNumber = [self.celciusNumbers objectAtIndex:row];
-    int celciusInt = [celciusNumber intValue];
-    return [NSString stringWithFormat:@"%d°C", celciusInt];
+    NSNumber *celsiusNumber = [self.celsiusNumbers objectAtIndex:row];
+    int celsiusInt = [celsiusNumber intValue];
+    return [NSString stringWithFormat:@"%d°C", celsiusInt];
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    NSNumber *celciusNumber = [self.celciusNumbers objectAtIndex:row];
-    float celciusFloat = [celciusNumber floatValue];
-    [self updateTemperatureLabelWithCelciusValue:celciusFloat];
+    NSNumber *celsiusNumber = [self.celsiusNumbers objectAtIndex:row];
+    float celsiusFloat = [celsiusNumber floatValue];
+    [self updateTemperatureLabelWithCelsiusValue:celsiusFloat];
 }
 
 @end

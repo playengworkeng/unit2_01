@@ -12,8 +12,8 @@
 
 @interface ViewController ()
 
-@property (weak, nonatomic) UISlider *celciusSlider;
-@property (weak, nonatomic) UILabel *celciusLabel;
+@property (weak, nonatomic) UISlider *celsiusSlider;
+@property (weak, nonatomic) UILabel *celsiusLabel;
 @property (weak, nonatomic) UILabel *fahrenheitLabel;
 
 @end
@@ -25,28 +25,28 @@
     
     self.view.backgroundColor = [UIColor colorWithHue:0.6 saturation:1.0 brightness:0.18 alpha:1.0];
     
-    UISlider *celciusSlider = [UISlider new];
-    UILabel *celciusLabel = [UILabel new];
+    UISlider *celsiusSlider = [UISlider new];
+    UILabel *celsiusLabel = [UILabel new];
     UILabel *fahrenheitLabel = [UILabel new];
-    [self.view addSubview:celciusSlider];
-    [self.view addSubview:celciusLabel];
+    [self.view addSubview:celsiusSlider];
+    [self.view addSubview:celsiusLabel];
     [self.view addSubview:fahrenheitLabel];
-    self.celciusSlider = celciusSlider;
-    self.celciusLabel = celciusLabel;
+    self.celsiusSlider = celsiusSlider;
+    self.celsiusLabel = celsiusLabel;
     self.fahrenheitLabel = fahrenheitLabel;
     
     UIColor *color = [UIColor colorWithHue:0.22 saturation:1.0 brightness:0.9 alpha:1.0];
-    self.celciusSlider.tintColor = color;
-    self.celciusSlider.minimumValue = -100;
-    self.celciusSlider.maximumValue = 100;
-    [self.celciusSlider addTarget:self action:@selector(updateTemperatureLabels) forControlEvents:UIControlEventValueChanged];
+    self.celsiusSlider.tintColor = color;
+    self.celsiusSlider.minimumValue = -100;
+    self.celsiusSlider.maximumValue = 100;
+    [self.celsiusSlider addTarget:self action:@selector(updateTemperatureLabels) forControlEvents:UIControlEventValueChanged];
     
-    self.celciusLabel.text = @"0°C";
+    self.celsiusLabel.text = @"0°C";
     self.fahrenheitLabel.text = @"32°F";
     
-    [self.celciusLabel setFont:[UIFont boldSystemFontOfSize:60]];
-    self.celciusLabel.textColor = color;
-    self.celciusLabel.textAlignment = NSTextAlignmentRight;
+    [self.celsiusLabel setFont:[UIFont boldSystemFontOfSize:60]];
+    self.celsiusLabel.textColor = color;
+    self.celsiusLabel.textAlignment = NSTextAlignmentRight;
     [self.fahrenheitLabel setFont:[UIFont boldSystemFontOfSize:60]];
     self.fahrenheitLabel.textColor = color;
     self.fahrenheitLabel.textAlignment = NSTextAlignmentRight;
@@ -55,13 +55,13 @@
     CGFloat trailingOffset = -20;
     CGFloat verticalSpace = 20;
     
-    [self.celciusSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.celsiusSlider mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).offset(-verticalSpace);
         make.leading.equalTo(self.view.mas_leading).offset(leadingOffset);
         make.trailing.equalTo(self.view.mas_trailing).offset(trailingOffset);
     }];
     
-    [self.celciusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.celsiusLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         UIView *topLayoutGuide = (id)self.topLayoutGuide;
         make.top.equalTo(topLayoutGuide.mas_bottom).offset(verticalSpace);
         make.leading.equalTo(self.view.mas_leading).offset(leadingOffset);
@@ -69,7 +69,7 @@
     }];
     
     [self.fahrenheitLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.celciusLabel.mas_bottom).offset(verticalSpace);
+        make.top.equalTo(self.celsiusLabel.mas_bottom).offset(verticalSpace);
         make.leading.equalTo(self.view.mas_leading).offset(leadingOffset);
         make.trailing.equalTo(self.view.mas_trailing).offset(trailingOffset);
     }];
@@ -87,10 +87,10 @@
 }
 
 - (void)updateTemperatureLabels {
-    float celcius = self.celciusSlider.value;
-    float fahrenheit = [TemperatureConverter celciusToFahrenheight:celcius];
+    float celsius = self.celsiusSlider.value;
+    float fahrenheit = [TemperatureConverter celsiusToFahrenheight:celsius];
     
-    self.celciusLabel.text = [NSString stringWithFormat:@"%.02f°C", celcius];
+    self.celsiusLabel.text = [NSString stringWithFormat:@"%.02f°C", celsius];
     self.fahrenheitLabel.text = [NSString stringWithFormat:@"%.02f°F", fahrenheit];
 }
 
