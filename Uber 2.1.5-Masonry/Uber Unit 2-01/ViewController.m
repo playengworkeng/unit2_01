@@ -41,10 +41,6 @@
     [self.greenSlider addTarget:self action:@selector(updateBackgroundColor) forControlEvents:UIControlEventValueChanged];
     [self.blueSlider addTarget:self action:@selector(updateBackgroundColor) forControlEvents:UIControlEventValueChanged];
     
-    self.redSlider.translatesAutoresizingMaskIntoConstraints = NO;
-    self.greenSlider.translatesAutoresizingMaskIntoConstraints = NO;
-    self.blueSlider.translatesAutoresizingMaskIntoConstraints = NO;
-    
     CGFloat leadingOffset = 10;
     CGFloat trailingOffset = -10;
     CGFloat verticalSpace = 10;
