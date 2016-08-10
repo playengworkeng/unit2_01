@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "Masonry.h"
+
 
 @interface ViewController ()
 
@@ -44,41 +46,88 @@
     self.greenSlider.translatesAutoresizingMaskIntoConstraints = NO;
     self.blueSlider.translatesAutoresizingMaskIntoConstraints = NO;
     
-    NSArray *constraintsArray = @[
+//    UIView* view1;
+//    UIView* view2;
+//    
+//    [view1 mas_makeConstraints:^(MASConstraintMaker *make) {
+//        
+//        make.top.equalTo(view2.mas_top);
+//        make.bottom.equalTo(self.view.mas_bottom).with.offset(10);
+//        
+//    
+//    }];
     
-    [NSLayoutConstraint constraintWithItem:self.redSlider attribute:NSLayoutAttributeLeading
-                                 relatedBy:NSLayoutRelationEqual toItem:self.view
-                                 attribute:NSLayoutAttributeLeading multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing
-                                 relatedBy:NSLayoutRelationEqual toItem:self.redSlider
-                                 attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.greenSlider attribute:NSLayoutAttributeTop
-                                 relatedBy:NSLayoutRelationEqual toItem:self.redSlider
-                                 attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10],
+
     
-    [NSLayoutConstraint constraintWithItem:self.greenSlider attribute:NSLayoutAttributeLeading
-                                 relatedBy:NSLayoutRelationEqual toItem:self.view
-                                 attribute:NSLayoutAttributeLeading multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing
-                                 relatedBy:NSLayoutRelationEqual toItem:self.greenSlider
-                                 attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterY
-                                 relatedBy:NSLayoutRelationEqual toItem:self.greenSlider
-                                 attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0],
     
-    [NSLayoutConstraint constraintWithItem:self.blueSlider attribute:NSLayoutAttributeLeading
-                                 relatedBy:NSLayoutRelationEqual toItem:self.view
-                                 attribute:NSLayoutAttributeLeading multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing
-                                 relatedBy:NSLayoutRelationEqual toItem:self.blueSlider
-                                 attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:10],
-    [NSLayoutConstraint constraintWithItem:self.blueSlider attribute:NSLayoutAttributeTop
-                                 relatedBy:NSLayoutRelationEqual toItem:self.greenSlider
-                                 attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10]
     
-    ];
+
     
-    [self.view addConstraints:constraintsArray];
+
+    
+//    NSArray *constraintsArray = @[
+//    
+//    [NSLayoutConstraint constraintWithItem:self.redSlider attribute:NSLayoutAttributeLeading
+//                                 relatedBy:NSLayoutRelationEqual toItem:self.view
+//                                 attribute:NSLayoutAttributeLeading multiplier:1.0 constant:10],
+//    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing
+//                                 relatedBy:NSLayoutRelationEqual toItem:self.redSlider
+//                                 attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:10],
+//    [NSLayoutConstraint constraintWithItem:self.greenSlider attribute:NSLayoutAttributeTop
+//                                 relatedBy:NSLayoutRelationEqual toItem:self.redSlider
+//                                 attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10],
+//    
+//    [NSLayoutConstraint constraintWithItem:self.greenSlider attribute:NSLayoutAttributeLeading
+//                                 relatedBy:NSLayoutRelationEqual toItem:self.view
+//                                 attribute:NSLayoutAttributeLeading multiplier:1.0 constant:10],
+//    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing
+//                                 relatedBy:NSLayoutRelationEqual toItem:self.greenSlider
+//                                 attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:10],
+//    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeCenterY
+//                                 relatedBy:NSLayoutRelationEqual toItem:self.greenSlider
+//                                 attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0],
+//    
+//    [NSLayoutConstraint constraintWithItem:self.blueSlider attribute:NSLayoutAttributeLeading
+//                                 relatedBy:NSLayoutRelationEqual toItem:self.view
+//                                 attribute:NSLayoutAttributeLeading multiplier:1.0 constant:10],
+//    [NSLayoutConstraint constraintWithItem:self.view attribute:NSLayoutAttributeTrailing
+//                                 relatedBy:NSLayoutRelationEqual toItem:self.blueSlider
+//                                 attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:10],
+//    [NSLayoutConstraint constraintWithItem:self.blueSlider attribute:NSLayoutAttributeTop
+//                                 relatedBy:NSLayoutRelationEqual toItem:self.greenSlider
+//                                 attribute:NSLayoutAttributeBottom multiplier:1.0 constant:10]
+//    
+//    ];
+//    
+//    [self.view addConstraints:constraintsArray];
+    
+    
+    
+    [self.redSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.equalTo(self.view.mas_leading).with.offset(10);
+        make.trailing.equalTo(self.view.mas_trailing).with.offset(-10);
+        make.bottom.equalTo(self.greenSlider.mas_top).with.offset(-10);
+    }];
+    
+    
+    
+    [self.greenSlider mas_makeConstraints:^(MASConstraintMaker *make){
+        make.centerY.equalTo(self.view.mas_centerY);
+        make.leading.equalTo(self.view.mas_leading).with.offset(10);
+        make.trailing.equalTo(self.view.mas_trailing).with.offset(-10);
+
+        
+        
+    }];
+    
+    
+    
+    [self.blueSlider mas_makeConstraints:^(MASConstraintMaker* make){
+        
+        make.leading.equalTo(self.view.mas_leading).with.offset(10);
+        make.trailing.equalTo(self.view.mas_trailing).with.offset(-10);
+        make.top.equalTo(self.greenSlider.mas_baseline).with.offset(10);
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
